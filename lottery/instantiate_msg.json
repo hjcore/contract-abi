@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "InstantiateMsg",
+  "type": "object",
+  "required": [
+    "block_time_play",
+    "every_block_time_play",
+    "lottery_cw20_addr",
+    "lottery_worker_percentage",
+    "rand_contract_address"
+  ],
+  "properties": {
+    "block_time_play": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    },
+    "every_block_time_play": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    },
+    "lottery_cw20_addr": {
+      "type": "string"
+    },
+    "lottery_worker_percentage": {
+      "type": "integer",
+      "format": "uint8",
+      "minimum": 0.0
+    },
+    "rand_contract_address": {
+      "type": "string"
+    }
+  }
+}
