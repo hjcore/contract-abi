@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "InstantiateMsg",
+  "type": "object",
+  "required": [
+    "enable_registration",
+    "l1",
+    "l1_lucky_num",
+    "l1_reg_time",
+    "l2",
+    "l2_lucky_num",
+    "l2_reg_time",
+    "l3",
+    "l3_lucky_num",
+    "l3_reg_time",
+    "max_commitment_age",
+    "min_commitment_age",
+    "min_registration_duration",
+    "perm_price",
+    "registrar_address",
+    "registry_address",
+    "resolver_address",
+    "tier1_price",
+    "tier2_price",
+    "tier3_price"
+  ],
+  "properties": {
+    "enable_registration": {
+      "type": "boolean"
+    },
+    "l1": {
+      "type": "integer",
+      "format": "uint32",
+      "minimum": 0.0
+    },
+    "l1_lucky_num": {
+      "type": "integer",
+      "format": "uint32",
+      "minimum": 0.0
+    },
+    "l1_reg_time": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    },
+    "l2": {
+      "type": "integer",
+      "format": "uint32",
+      "minimum": 0.0
+    },
+    "l2_lucky_num": {
+      "type": "integer",
+      "format": "uint32",
+      "minimum": 0.0
+    },
+    "l2_reg_time": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    },
+    "l3": {
+      "type": "integer",
+      "format": "uint32",
+      "minimum": 0.0
+    },
+    "l3_lucky_num": {
+      "type": "integer",
+      "format": "uint32",
+      "minimum": 0.0
+    },
+    "l3_reg_time": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    },
+    "max_commitment_age": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    },
+    "min_commitment_age": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    },
+    "min_registration_duration": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    },
+    "perm_price": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    },
+    "registrar_address": {
+      "type": "string"
+    },
+    "registry_address": {
+      "type": "string"
+    },
+    "resolver_address": {
+      "type": "string"
+    },
+    "tier1_price": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    },
+    "tier2_price": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    },
+    "tier3_price": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    }
+  }
+}

@@ -1,0 +1,405 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExecuteMsg",
+  "oneOf": [
+    {
+      "description": "Commit commitment",
+      "type": "object",
+      "required": [
+        "commit"
+      ],
+      "properties": {
+        "commit": {
+          "type": "object",
+          "required": [
+            "commitment"
+          ],
+          "properties": {
+            "commitment": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "description": "Register new nft by the name",
+      "type": "object",
+      "required": [
+        "register"
+      ],
+      "properties": {
+        "register": {
+          "type": "object",
+          "required": [
+            "duration",
+            "name",
+            "owner",
+            "secret"
+          ],
+          "properties": {
+            "address": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "duration": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "name": {
+              "type": "string"
+            },
+            "owner": {
+              "type": "string"
+            },
+            "resolver": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "secret": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "description": "Register new nft by the name(only NFT owner)",
+      "type": "object",
+      "required": [
+        "owner_register"
+      ],
+      "properties": {
+        "owner_register": {
+          "type": "object",
+          "required": [
+            "duration",
+            "name",
+            "owner"
+          ],
+          "properties": {
+            "address": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "duration": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "name": {
+              "type": "string"
+            },
+            "owner": {
+              "type": "string"
+            },
+            "resolver": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "description": "Set contract config(only admin)",
+      "type": "object",
+      "required": [
+        "set_config"
+      ],
+      "properties": {
+        "set_config": {
+          "type": "object",
+          "required": [
+            "enable_registration",
+            "l1",
+            "l1_lucky_num",
+            "l1_reg_time",
+            "l2",
+            "l2_lucky_num",
+            "l2_reg_time",
+            "l3",
+            "l3_lucky_num",
+            "l3_reg_time",
+            "max_commitment_age",
+            "min_commitment_age",
+            "min_registration_duration",
+            "owner",
+            "perm_price",
+            "registrar_address",
+            "tier1_price",
+            "tier2_price",
+            "tier3_price"
+          ],
+          "properties": {
+            "enable_registration": {
+              "type": "boolean"
+            },
+            "l1": {
+              "type": "integer",
+              "format": "uint32",
+              "minimum": 0.0
+            },
+            "l1_lucky_num": {
+              "type": "integer",
+              "format": "uint32",
+              "minimum": 0.0
+            },
+            "l1_reg_time": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "l2": {
+              "type": "integer",
+              "format": "uint32",
+              "minimum": 0.0
+            },
+            "l2_lucky_num": {
+              "type": "integer",
+              "format": "uint32",
+              "minimum": 0.0
+            },
+            "l2_reg_time": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "l3": {
+              "type": "integer",
+              "format": "uint32",
+              "minimum": 0.0
+            },
+            "l3_lucky_num": {
+              "type": "integer",
+              "format": "uint32",
+              "minimum": 0.0
+            },
+            "l3_reg_time": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "max_commitment_age": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "min_commitment_age": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "min_registration_duration": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "owner": {
+              "type": "string"
+            },
+            "perm_price": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "registrar_address": {
+              "type": "string"
+            },
+            "tier1_price": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "tier2_price": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "tier3_price": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "description": "Withdraw register fee(only admin)",
+      "type": "object",
+      "required": [
+        "withdraw"
+      ],
+      "properties": {
+        "withdraw": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "description": "Renew by the name",
+      "type": "object",
+      "required": [
+        "renew"
+      ],
+      "properties": {
+        "renew": {
+          "type": "object",
+          "required": [
+            "duration",
+            "name"
+          ],
+          "properties": {
+            "duration": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "description": "Renew by the name(only owner)",
+      "type": "object",
+      "required": [
+        "owner_renew"
+      ],
+      "properties": {
+        "owner_renew": {
+          "type": "object",
+          "required": [
+            "duration",
+            "name"
+          ],
+          "properties": {
+            "duration": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "description": "Set enable registration(only admin)",
+      "type": "object",
+      "required": [
+        "set_enable_registration"
+      ],
+      "properties": {
+        "set_enable_registration": {
+          "type": "object",
+          "required": [
+            "enable_registration"
+          ],
+          "properties": {
+            "enable_registration": {
+              "type": "boolean"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "description": "Add reserved name (only admin)",
+      "type": "object",
+      "required": [
+        "add_reserved_name"
+      ],
+      "properties": {
+        "add_reserved_name": {
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "description": "Remove reserved name (only admin)",
+      "type": "object",
+      "required": [
+        "remove_reserved_name"
+      ],
+      "properties": {
+        "remove_reserved_name": {
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "description": "Reverse Claim",
+      "type": "object",
+      "required": [
+        "reverse_claim"
+      ],
+      "properties": {
+        "reverse_claim": {
+          "type": "object",
+          "required": [
+            "owner"
+          ],
+          "properties": {
+            "name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "owner": {
+              "type": "string"
+            },
+            "resolver": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}
