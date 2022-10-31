@@ -1,12 +1,12 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "GetCommitmentResponse",
+  "title": "QueryRespTokenId",
   "type": "object",
   "required": [
-    "commitment"
+    "token_id"
   ],
   "properties": {
-    "commitment": {
+    "token_id": {
       "type": "string"
     }
   }

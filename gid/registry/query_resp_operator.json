@@ -1,12 +1,12 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "IsValidNameResponse",
+  "title": "QueryRespOperator",
   "type": "object",
   "required": [
-    "is_valid_name"
+    "is_approve"
   ],
   "properties": {
-    "is_valid_name": {
+    "is_approve": {
       "type": "boolean"
     }
   }

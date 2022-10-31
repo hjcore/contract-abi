@@ -99,14 +99,12 @@
         "rent_price": {
           "type": "object",
           "required": [
-            "duration",
+            "duration_type",
             "name"
           ],
           "properties": {
-            "duration": {
-              "type": "integer",
-              "format": "uint64",
-              "minimum": 0.0
+            "duration_type": {
+              "$ref": "#/definitions/RegDurationType"
             },
             "name": {
               "type": "string"
@@ -256,10 +254,10 @@
       "description": "Get reverse node",
       "type": "object",
       "required": [
-        "get_reverse_node"
+        "get_reverse_record"
       ],
       "properties": {
-        "get_reverse_node": {
+        "get_reverse_record": {
           "type": "object",
           "required": [
             "address"
@@ -272,6 +270,57 @@
         }
       },
       "additionalProperties": false
+    },
+    {
+      "description": "Is avaliable for given name",
+      "type": "object",
+      "required": [
+        "is_avaliable_reg"
+      ],
+      "properties": {
+        "is_avaliable_reg": {
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "description": "Get register record info by the name",
+      "type": "object",
+      "required": [
+        "get_name_info"
+      ],
+      "properties": {
+        "get_name_info": {
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
     }
-  ]
+  ],
+  "definitions": {
+    "RegDurationType": {
+      "type": "string",
+      "enum": [
+        "year",
+        "permanent"
+      ]
+    }
+  }
 }

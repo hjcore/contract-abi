@@ -1,12 +1,12 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "MinCommitmentAgeResponse",
+  "title": "QueryRespGracePeriod",
   "type": "object",
   "required": [
-    "age"
+    "grace_period"
   ],
   "properties": {
-    "age": {
+    "grace_period": {
       "type": "integer",
       "format": "uint64",
       "minimum": 0.0

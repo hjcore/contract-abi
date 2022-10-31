@@ -1,19 +1,12 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "AllTextDataResponse",
+  "title": "QueryRespCommitmentTimestamp",
   "type": "object",
   "required": [
-    "data",
-    "total"
+    "timestamp"
   ],
   "properties": {
-    "data": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "total": {
+    "timestamp": {
       "type": "integer",
       "format": "uint64",
       "minimum": 0.0

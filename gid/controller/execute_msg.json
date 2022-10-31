@@ -24,7 +24,7 @@
       "additionalProperties": false
     },
     {
-      "description": "Register new nft by the name",
+      "description": "Register new nft by the name 0-year, 1-permanent",
       "type": "object",
       "required": [
         "register"
@@ -33,7 +33,7 @@
         "register": {
           "type": "object",
           "required": [
-            "duration",
+            "duration_type",
             "name",
             "owner",
             "secret"
@@ -45,10 +45,8 @@
                 "null"
               ]
             },
-            "duration": {
-              "type": "integer",
-              "format": "uint64",
-              "minimum": 0.0
+            "duration_type": {
+              "$ref": "#/definitions/RegDurationType"
             },
             "name": {
               "type": "string"
@@ -80,21 +78,13 @@
         "owner_register": {
           "type": "object",
           "required": [
-            "duration",
+            "duration_type",
             "name",
             "owner"
           ],
           "properties": {
-            "address": {
-              "type": [
-                "string",
-                "null"
-              ]
-            },
-            "duration": {
-              "type": "integer",
-              "format": "uint64",
-              "minimum": 0.0
+            "duration_type": {
+              "$ref": "#/definitions/RegDurationType"
             },
             "name": {
               "type": "string"
@@ -124,20 +114,12 @@
           "type": "object",
           "required": [
             "enable_registration",
-            "l1",
-            "l1_lucky_num",
-            "l1_reg_time",
-            "l2",
-            "l2_lucky_num",
-            "l2_reg_time",
-            "l3",
-            "l3_lucky_num",
-            "l3_reg_time",
+            "level1",
+            "level2",
+            "level3",
             "max_commitment_age",
             "min_commitment_age",
-            "min_registration_duration",
             "owner",
-            "perm_price",
             "registrar_address",
             "tier1_price",
             "tier2_price",
@@ -147,50 +129,71 @@
             "enable_registration": {
               "type": "boolean"
             },
-            "l1": {
-              "type": "integer",
-              "format": "uint32",
-              "minimum": 0.0
+            "level1": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "integer",
+                  "format": "uint32",
+                  "minimum": 0.0
+                },
+                {
+                  "type": "integer",
+                  "format": "uint32",
+                  "minimum": 0.0
+                },
+                {
+                  "type": "integer",
+                  "format": "uint64",
+                  "minimum": 0.0
+                }
+              ],
+              "maxItems": 3,
+              "minItems": 3
             },
-            "l1_lucky_num": {
-              "type": "integer",
-              "format": "uint32",
-              "minimum": 0.0
+            "level2": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "integer",
+                  "format": "uint32",
+                  "minimum": 0.0
+                },
+                {
+                  "type": "integer",
+                  "format": "uint32",
+                  "minimum": 0.0
+                },
+                {
+                  "type": "integer",
+                  "format": "uint64",
+                  "minimum": 0.0
+                }
+              ],
+              "maxItems": 3,
+              "minItems": 3
             },
-            "l1_reg_time": {
-              "type": "integer",
-              "format": "uint64",
-              "minimum": 0.0
-            },
-            "l2": {
-              "type": "integer",
-              "format": "uint32",
-              "minimum": 0.0
-            },
-            "l2_lucky_num": {
-              "type": "integer",
-              "format": "uint32",
-              "minimum": 0.0
-            },
-            "l2_reg_time": {
-              "type": "integer",
-              "format": "uint64",
-              "minimum": 0.0
-            },
-            "l3": {
-              "type": "integer",
-              "format": "uint32",
-              "minimum": 0.0
-            },
-            "l3_lucky_num": {
-              "type": "integer",
-              "format": "uint32",
-              "minimum": 0.0
-            },
-            "l3_reg_time": {
-              "type": "integer",
-              "format": "uint64",
-              "minimum": 0.0
+            "level3": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "integer",
+                  "format": "uint32",
+                  "minimum": 0.0
+                },
+                {
+                  "type": "integer",
+                  "format": "uint32",
+                  "minimum": 0.0
+                },
+                {
+                  "type": "integer",
+                  "format": "uint64",
+                  "minimum": 0.0
+                }
+              ],
+              "maxItems": 3,
+              "minItems": 3
             },
             "max_commitment_age": {
               "type": "integer",
@@ -202,36 +205,62 @@
               "format": "uint64",
               "minimum": 0.0
             },
-            "min_registration_duration": {
-              "type": "integer",
-              "format": "uint64",
-              "minimum": 0.0
-            },
             "owner": {
               "type": "string"
-            },
-            "perm_price": {
-              "type": "integer",
-              "format": "uint64",
-              "minimum": 0.0
             },
             "registrar_address": {
               "type": "string"
             },
             "tier1_price": {
-              "type": "integer",
-              "format": "uint64",
-              "minimum": 0.0
+              "type": "array",
+              "items": [
+                {
+                  "type": "integer",
+                  "format": "uint64",
+                  "minimum": 0.0
+                },
+                {
+                  "type": "integer",
+                  "format": "uint64",
+                  "minimum": 0.0
+                }
+              ],
+              "maxItems": 2,
+              "minItems": 2
             },
             "tier2_price": {
-              "type": "integer",
-              "format": "uint64",
-              "minimum": 0.0
+              "type": "array",
+              "items": [
+                {
+                  "type": "integer",
+                  "format": "uint64",
+                  "minimum": 0.0
+                },
+                {
+                  "type": "integer",
+                  "format": "uint64",
+                  "minimum": 0.0
+                }
+              ],
+              "maxItems": 2,
+              "minItems": 2
             },
             "tier3_price": {
-              "type": "integer",
-              "format": "uint64",
-              "minimum": 0.0
+              "type": "array",
+              "items": [
+                {
+                  "type": "integer",
+                  "format": "uint64",
+                  "minimum": 0.0
+                },
+                {
+                  "type": "integer",
+                  "format": "uint64",
+                  "minimum": 0.0
+                }
+              ],
+              "maxItems": 2,
+              "minItems": 2
             }
           }
         }
@@ -261,14 +290,12 @@
         "renew": {
           "type": "object",
           "required": [
-            "duration",
+            "duration_type",
             "name"
           ],
           "properties": {
-            "duration": {
-              "type": "integer",
-              "format": "uint64",
-              "minimum": 0.0
+            "duration_type": {
+              "$ref": "#/definitions/RegDurationType"
             },
             "name": {
               "type": "string"
@@ -288,14 +315,12 @@
         "owner_renew": {
           "type": "object",
           "required": [
-            "duration",
+            "duration_type",
             "name"
           ],
           "properties": {
-            "duration": {
-              "type": "integer",
-              "format": "uint64",
-              "minimum": 0.0
+            "duration_type": {
+              "$ref": "#/definitions/RegDurationType"
             },
             "name": {
               "type": "string"
@@ -336,11 +361,14 @@
         "add_reserved_name": {
           "type": "object",
           "required": [
-            "name"
+            "names"
           ],
           "properties": {
-            "name": {
-              "type": "string"
+            "names": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
           }
         }
@@ -351,17 +379,20 @@
       "description": "Remove reserved name (only admin)",
       "type": "object",
       "required": [
-        "remove_reserved_name"
+        "remove_reserved_names"
       ],
       "properties": {
-        "remove_reserved_name": {
+        "remove_reserved_names": {
           "type": "object",
           "required": [
-            "name"
+            "names"
           ],
           "properties": {
-            "name": {
-              "type": "string"
+            "names": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
           }
         }
@@ -389,17 +420,32 @@
             },
             "owner": {
               "type": "string"
-            },
-            "resolver": {
-              "type": [
-                "string",
-                "null"
-              ]
             }
           }
         }
       },
       "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "remove_reverse_record"
+      ],
+      "properties": {
+        "remove_reverse_record": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
     }
-  ]
+  ],
+  "definitions": {
+    "RegDurationType": {
+      "type": "string",
+      "enum": [
+        "year",
+        "permanent"
+      ]
+    }
+  }
 }

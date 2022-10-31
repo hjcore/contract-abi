@@ -1,12 +1,12 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "TextDataResponse",
+  "title": "QueryRespBaseNode",
   "type": "object",
   "required": [
-    "data"
+    "base_node"
   ],
   "properties": {
-    "data": {
+    "base_node": {
       "type": "string"
     }
   }

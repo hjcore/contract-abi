@@ -1,22 +1,12 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "ConfigResponse",
+  "title": "QueryRespOwner",
   "type": "object",
   "required": [
-    "interface_id",
-    "owner",
-    "registry_address"
+    "owner"
   ],
   "properties": {
-    "interface_id": {
-      "type": "integer",
-      "format": "uint64",
-      "minimum": 0.0
-    },
     "owner": {
-      "$ref": "#/definitions/Addr"
-    },
-    "registry_address": {
       "$ref": "#/definitions/Addr"
     }
   },

@@ -1,12 +1,16 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "TokenIdResponse",
+  "title": "QueryRespContractInfo",
   "type": "object",
   "required": [
-    "token_id"
+    "name",
+    "symbol"
   ],
   "properties": {
-    "token_id": {
+    "name": {
+      "type": "string"
+    },
+    "symbol": {
       "type": "string"
     }
   }

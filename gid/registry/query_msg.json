@@ -3,24 +3,68 @@
   "title": "QueryMsg",
   "oneOf": [
     {
-      "description": "Get node text data by the key",
+      "description": "Get record by the name",
       "type": "object",
       "required": [
-        "get_text_datas"
+        "get_record"
       ],
       "properties": {
-        "get_text_datas": {
+        "get_record": {
           "type": "object",
           "required": [
-            "keys",
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "description": "Get record by node",
+      "type": "object",
+      "required": [
+        "get_record_by_node"
+      ],
+      "properties": {
+        "get_record_by_node": {
+          "type": "object",
+          "required": [
             "node"
           ],
           "properties": {
-            "keys": {
+            "node": {
               "type": "array",
               "items": {
-                "type": "string"
+                "type": "integer",
+                "format": "uint8",
+                "minimum": 0.0
               }
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "description": "Check given address is node owner",
+      "type": "object",
+      "required": [
+        "get_is_node_owner"
+      ],
+      "properties": {
+        "get_is_node_owner": {
+          "type": "object",
+          "required": [
+            "address",
+            "node"
+          ],
+          "properties": {
+            "address": {
+              "type": "string"
             },
             "node": {
               "type": "array",
@@ -36,63 +80,24 @@
       "additionalProperties": false
     },
     {
-      "description": "Get all node key by the node",
+      "description": "Get is approved for all by given owner and operator",
       "type": "object",
       "required": [
-        "get_keys"
+        "get_is_approved_for_all"
       ],
       "properties": {
-        "get_keys": {
+        "get_is_approved_for_all": {
           "type": "object",
           "required": [
-            "limit",
-            "node",
-            "page"
+            "operator",
+            "owner"
           ],
           "properties": {
-            "limit": {
-              "type": "integer",
-              "format": "uint32",
-              "minimum": 0.0
+            "operator": {
+              "type": "string"
             },
-            "node": {
-              "type": "array",
-              "items": {
-                "type": "integer",
-                "format": "uint8",
-                "minimum": 0.0
-              }
-            },
-            "page": {
-              "type": "integer",
-              "format": "uint32",
-              "minimum": 0.0
-            }
-          }
-        }
-      },
-      "additionalProperties": false
-    },
-    {
-      "description": "Get Content hash by the node",
-      "type": "object",
-      "required": [
-        "get_content_hash"
-      ],
-      "properties": {
-        "get_content_hash": {
-          "type": "object",
-          "required": [
-            "node"
-          ],
-          "properties": {
-            "node": {
-              "type": "array",
-              "items": {
-                "type": "integer",
-                "format": "uint8",
-                "minimum": 0.0
-              }
+            "owner": {
+              "type": "string"
             }
           }
         }
